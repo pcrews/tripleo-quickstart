@@ -26,17 +26,17 @@
 # By generating these in advance we can populate the
 # `instackenv.json` file with MAC addresses without running
 # introspection.
-- name: get a list of MACs to use for overcloud
-  hosts: localhost
-  gather_facts: yes
-  tasks:
-    - when: overcloud_nodes
-      block:
-        - name: get a list of MACs to use
-          generate_macs:
-            nodes: "{{ overcloud_nodes }}"
-            networks: "{{ networks }}"
-          register: node_mac_map
+#- name: get a list of MACs to use for overcloud
+#  hosts: localhost
+#  gather_facts: yes
+#  tasks:
+#    - when: overcloud_nodes
+#      block:
+#        - name: get a list of MACs to use
+#          generate_macs:
+#            nodes: "{{ overcloud_nodes }}"
+#            networks: "{{ networks }}"
+#          register: node_mac_map
 
 # Generate the `instackenv.json` configuration file.  Note that this
 # task *must* occur after the above overcloud tasks, because if
