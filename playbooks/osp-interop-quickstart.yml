@@ -42,18 +42,18 @@
 # task *must* occur after the above overcloud tasks, because if
 # `overcloud_nodes` is defined the template depends on the
 # `node_mac_map` variable.
-- name: Write instackenv script
-  hosts: localhost
-  tasks:
-    - template:
-        src: "{{ undercloud_instackenv_template }}"
-        dest: "{{ working_dir }}/instackenv.json"
+#- name: Write instackenv script
+#  hosts: localhost
+#  tasks:
+#    - template:
+#        src: "{{ undercloud_instackenv_template }}"
+#        dest: "{{ working_dir }}/instackenv.json"
 
 # Copy `instackenv.json` configuration file to the undercloud node
-- name: Copy instackenv script to undercloud
-  hosts: undercloud
-  tasks:
-    - copy: src={{ working_dir }}/instackenv.json dest=/home/stack/instackenv.json owner=stack group=stack
+#- name: Copy instackenv script to undercloud
+#  hosts: undercloud
+#  tasks:
+#    - copy: src={{ working_dir }}/instackenv.json dest=/home/stack/instackenv.json owner=stack group=stack
 
 # DEPLOY ALL THE THINGS!  Depending on the currently selected set of
 # tags, this will deploy the undercloud, deploy the overcloud, and
